@@ -1,21 +1,15 @@
 -- Crear la base de datos
-CREATE DATABASE RurInnovaDB;
+CREATE DATABASE RurInnova;
 GO
 
 -- Usar la base de datos recién creada
-USE RurInnovaDB;
+USE RurInnova;
 GO
 
 -- Crear tablas
-CREATE TABLE app (
-  Id_App INT IDENTITY(1,1) PRIMARY KEY,
-  Nombre_App VARCHAR(100) NOT NULL,
-  Version VARCHAR(20)
-);
-
 CREATE TABLE tipo_usuario (
   Id_Tipo_Usuario INT IDENTITY(1,1) PRIMARY KEY,
-  Nombre_Tipo VARCHAR(50) UNIQUE
+  Nombre_Tipo VARCHAR(50) NULL
 );
 
 CREATE TABLE usuario (
@@ -145,19 +139,6 @@ CREATE TABLE curso (
   Id_Capacitacion INT,
   FOREIGN KEY (Instructor) REFERENCES mentor(Id_Mentor),
   FOREIGN KEY (Id_Capacitacion) REFERENCES capacitacion(Id_Capacitacion)
-);
-
-CREATE TABLE estado_cuenta (
-  Id_Estado INT IDENTITY(1,1) PRIMARY KEY,
-  Estado VARCHAR(50) UNIQUE
-);
-
-CREATE TABLE eventos (
-  Id_Evento INT IDENTITY(1,1) PRIMARY KEY,
-  Nombre_Evento VARCHAR(255),
-  Fecha_Evento DATE,
-  Descripcion TEXT,
-  Lugar VARCHAR(255)
 );
 
 CREATE TABLE facturacion (

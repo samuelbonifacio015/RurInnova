@@ -1,20 +1,18 @@
 -- Crear la base de datos
-CREATE DATABASE RurInnovaDB;
+CREATE DATABASE RurInnova;
 GO
 
 -- Usar la base de datos recién creada
-USE RurInnovaDB;
+USE RurInnova;
 GO
 
 -- Crear tablas
 CREATE TABLE app (
-  Id_App INT IDENTITY(1,1) PRIMARY KEY,
-  Nombre_App VARCHAR(100) NOT NULL,
-  Version VARCHAR(20)
+  Plataforma VARCHAR(100) NOT NULL
 );
 
+
 CREATE TABLE tipo_usuario (
-  Id_Tipo_Usuario INT IDENTITY(1,1) PRIMARY KEY,
   Nombre_Tipo VARCHAR(50) UNIQUE
 );
 
