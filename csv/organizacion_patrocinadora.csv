@@ -1,0 +1,11 @@
+Id_Organizacion,Nombre_Organizacion,Tipo_Organizacion,Responsable,Correo_Electronico,Telefono,Direccion,Fecha_Ingreso,Descripcion
+1,Vilaplana LLC,Institución Pública,Álvaro de Zamorano,jmatas@aliaga.com,+34710 69 19 05,"Paseo de Marisa Barrio 6 Puerta 5 , Asturias, 05320",2021-03-18,Desarrollo de proyectos rurales.
+2,Pons Ltd,Institución Pública,Carolina Casal-Perales,calisto94@paez.org,+34737 01 44 27,"Plaza Azeneth Barberá 64 Piso 2 , Vizcaya, 92699",2020-08-07,Impulso de iniciativas públicas.
+3,Antúnez-Rivas,Empresa,Carmina Juliana Duque Pozo,hugoalberdi@gmail.com,+34 737 333 237,"Avenida Mariana Ayala 69, Cádiz, 03300",2021-02-10,Apoyo a emprendedores rurales.
+4,Ferréndez PLC,Empresa,Adoración Úrsula Valencia Robledo,leocadiacanovas@hotmail.com,+34743 64 52 02,"Ronda de Trinidad Acero 38, Huelva, 90442",2020-03-07,Soluciones empresariales innovadoras.
+5,Sotelo-Alonso,ONG,Artemio Rodríguez Heras,escrivaaura@gmail.com,+34 625 16 73 85,"Urbanización Desiderio Cerdán 11 Piso 9 , Zaragoza, 43891",2025-01-09,Promoción de proyectos sociales.
+6,"Benet, Vives and Almagro",ONG,Domingo Roldán Benavides,valentin66@yahoo.com,+34706 646 114,"Cuesta de Priscila Diéguez 55, Santa Cruz de Tenerife, 65440",2021-02-17,Asesoría para organizaciones no gubernamentales.
+7,Cervantes Ltd,Institución Pública,Viviana Franco Abellán,ema56@ortiz.com,+34 704212077,"Rambla de Victor Guzmán 20, Lugo, 34999",2024-11-17,Cooperación institucional pública.
+8,Priego Inc,Institución Pública,Lupe Bru Vallejo,pinedanydia@hotmail.com,+34724 36 15 98,"Callejón Adrián Aguado 15, Pontevedra, 46749",2024-12-24,Fortalecimiento de entidades locales.
+9,Bermejo-Aroca,Empresa,Maximiano Abellán Feijoo,anacleto71@borras.com,+34 707973140,"Ronda Javier Duque 4 Apt. 28 , Almería, 74609",2021-10-02,Innovación y emprendimiento empresarial.
+10,Martin-Jove,Empresa,Moreno Herrero Calderon,caminoamalia@hotmail.com,+34704 222 381,"Cañada de Itziar Lloret 28 Puerta 7 , Palencia, 25515",2020-08-19,Apoyo y mentoría a pequeñas empresas. 

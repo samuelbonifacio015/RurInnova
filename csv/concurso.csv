@@ -1,0 +1,11 @@
+Id_Concurso,Nombre_Concurso,Descripcion_Concurso,Fecha_Lanzamiento,Fecha_Cierre,Premios_Ofrecidos,Tema_Concurso,Numero_Participantes,Evaluador_Responsable,Id_Organizacion,Estado_Concurso,Id_Tipo_Concurso
+1,Reto Innovación Rural I,Propuestas de tecnologías para zonas rurales.,2025-01-01,2025-02-15,"Equipos, mentorías",Tecnología rural,20,1,1,Cerrado,1
+2,Reto Innovación Rural II,Equipos de hardware open-source.,2025-03-01,2025-04-15,"Kits, becas",Hardware libre,25,2,1,Cerrado,1
+3,Concurso Agro Sostenible,Soluciones para agricultura sostenible.,2025-05-01,2025-06-15,Capital semilla,Agroecología,30,3,2,Abierto,2
+4,Desafío Energía Limpia,Innovación en energías renovables.,2025-07-01,2025-08-15,Paneles solares,Energías,40,4,2,Planificado,2
+5,Hackathon Rural,Desarrollo de apps para agricultura.,2025-09-01,2025-09-05,Premios en metálico,Software,50,5,3,Planificado,3
+6,Innova Ganadera,Tecnologías para ganadería inteligente.,2025-10-01,2025-11-15,"Drones, sensores",Ganadería,35,1,3,Planificado,2
+7,Smart Riego,Sistemas de riego automatizado.,2025-11-20,2025-12-31,Kits IoT,IoT,28,2,4,Planificado,1
+8,Biofertilizantes,Desarrollo de fertilizantes orgánicos.,2026-01-10,2026-02-25,Laboratorios,Biotecnología,22,3,4,Planificado,2
+9,EcoConstrucción,Materiales de construcción ecológicos.,2026-03-01,2026-04-15,Talleres,Construcción,18,4,5,Planificado,3
+10,Telemedicina Rural,Servicios médicos remotos.,2026-05-01,2026-06-15,Equipos médicos,Salud,45,5,5,Planificado,2 

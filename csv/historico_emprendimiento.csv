@@ -1,0 +1,11 @@
+Id_Historico,Id_Emprendedor,Nombre_Negocio,Fecha_Inicio,Fecha_Fin,Estado,Descripcion
+1,1,Artesanías López,2024-01-15,2025-01-15,Finalizado,Éxito en feria
+2,2,Digital Díaz,2025-02-10,2026-02-10,En curso,Expansión online
+3,3,Eco Huertos,2023-03-01,2024-03-01,Finalizado,Ventas estables
+4,4,IoT Smart,2025-04-01,2026-04-01,En curso,Alianzas nuevas
+5,5,E-Learning Plus,2025-05-01,2026-05-01,En curso,Crecimiento usuarios
+6,6,Clínica Móvil,2025-06-01,2026-06-01,En curso,Rutas ampliadas
+7,7,Rutas Turísticas,2025-06-02,2026-06-02,En curso,Buenas reseñas
+8,8,Orgánico Food,2025-06-03,2026-06-03,En curso,Nuevos distribuidores
+9,9,Moda Andina,2025-06-04,2026-06-04,En curso,Expansión ventas
+10,10,LogiRural,2025-06-05,2026-06-05,En curso,Optimización rutas 

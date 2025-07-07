@@ -1,0 +1,11 @@
+Id_Feedback,Id_Usuario,Id_Emprendedor,Comentario,Valoracion,Fecha_Feedback
+1,1,1,Excelente servicio.,5,2025-06-01
+2,2,2,Buena mentoría.,4,2025-06-02
+3,3,3,Respuesta rápida.,5,2025-06-03
+4,4,4,Información clara.,4,2025-06-04
+5,5,5,Atención personalizada.,5,2025-06-05
+6,6,6,Muy recomendable.,4,2025-06-06
+7,7,7,Plataforma intuitiva.,5,2025-06-07
+8,8,8,Interfaz amigable.,4,2025-06-08
+9,9,9,Contenido útil.,5,2025-06-09
+10,10,10,Navegación sencilla.,4,2025-06-10 

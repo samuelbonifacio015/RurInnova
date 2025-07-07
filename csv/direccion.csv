@@ -1,0 +1,11 @@
+Id_Direccion,Id_Usuario,Distrito,Direccion_Completa,Referencia,Latitud,Longitud,Tipo_Direccion,Fecha_Registro,Id_Distrito
+1,4,Pueblo Libre,"Callejón de Máxima León 59 Piso 1 , Lleida, 30832",Paseo de Pastora Pedrosa,-11.85968751,-77.0238595,Residencial,2020-12-26,8
+2,4,Jesús María,"Plaza de Mercedes Cardona 90, Ceuta, 90713",Pasadizo Adora Sáenz,-12.18712418,-76.9527555,Residencial,2021-06-23,6
+3,2,San Isidro,"Vial Modesto Figuerola 2, Guipúzcoa, 52167",Cañada Griselda Busquets,-11.92291369,-77.00239662,Residencial,2021-07-02,5
+4,4,Jesús María,"Calle Nilo Alfonso 520, Castellón, 38353",Camino de Basilio Pujadas,-11.83323013,-76.82129696,Comercial,2022-04-24,5
+5,1,San Isidro,"Via de Carmelo Catalán 76, Jaén, 73315",Plaza Fanny Carrasco,-12.17409697,-76.89757594,Residencial,2025-04-06,4
+6,10,Jesús María,"Callejón Alonso Solano 74, Valladolid, 17258",Acceso Lupe Oliva,-12.06038434,-76.84854252,Residencial,2024-01-09,2
+7,4,Surco,"Plaza Pacífica Torrent 108 Piso 4 , Las Palmas, 40270",C. Francisca Arroyo,-12.12646102,-76.83936647,Comercial,2022-12-30,7
+8,4,Surco,"Pasadizo de Amparo Martí 77 Piso 4 , Barcelona, 52583",Cuesta de Adelia Cortina,-11.99200905,-76.96609814,Comercial,2021-08-01,5
+9,5,Barranco,"Alameda Daniela Velázquez 749 Apt. 38 , Ciudad, 27894",Camino de Jorge Gutiérrez,-11.83385689,-76.92339999,Residencial,2025-04-27,5
+10,5,Jesús María,"Callejón Estela Bauzá 54 Apt. 04 , Zamora, 99782",Paseo de Brunilda Solera,-11.98648744,-76.86990015,Comercial,2022-07-07,4 

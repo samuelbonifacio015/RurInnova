@@ -1,0 +1,11 @@
+Id_Sesion,Id_Mentor,Id_Emprendedor,Fecha_Sesion,Duracion,Tipo_Sesion,Objetivo,Tema_Trata,Comentarios_FinSesion
+1,1,1,2025-06-01,60 min,Virtual,Definir metas,Planificación,Excelente avance
+2,2,2,2025-06-02,45 min,Presencial,Estrategia,Marketing,Buen enfoque
+3,3,3,2025-06-03,30 min,Virtual,Finanzas,Presupuesto,Claridad obtenida
+4,4,4,2025-06-04,60 min,Presencial,Ventas,Canales,Metas claras
+5,5,5,2025-06-05,50 min,Virtual,Operaciones,Logística,Mejoras siguientes
+6,6,6,2025-06-06,40 min,Virtual,Producto,MVP,Feedback útil
+7,7,7,2025-06-07,45 min,Presencial,Clientes,Segmentación,Discusión activa
+8,8,8,2025-06-08,60 min,Virtual,Tecnología,Integraciones,Rumbo definido
+9,9,9,2025-06-09,30 min,Virtual,Legal,Contratos,Dudas aclaradas
+10,10,10,2025-06-10,55 min,Presencial,Crecimiento,Escalabilidad,Próximos pasos 

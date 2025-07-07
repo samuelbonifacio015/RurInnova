@@ -1,0 +1,11 @@
+Id_Negocio,Id_Emprendedor,Nombre_Negocio,Descripcion_Negocio,Tipo_Negocio,Estado_Negocio,Capital_Recibido,Monto_Objetivo,Fecha_Ultima_Actualizacion,Id_Categoria
+1,1,López Artesanías,Productos hechos a mano,Local,Activo,5000,10000,2025-06-01,1
+2,2,Marketing Díaz,Servicios de marketing,Regional,Activo,3000,8000,2025-06-02,2
+3,3,Huertos Verdes,Venta de hortalizas,Local,Activo,2000,5000,2025-06-03,3
+4,4,IoT Rural,Soluciones IoT,Nacional,Activo,6000,12000,2025-06-04,4
+5,5,Educa Plus,Plataforma educativa,Regional,Activo,4000,9000,2025-06-05,5
+6,6,Salud en Ruta,Clínica móvil,Local,Activo,7000,15000,2025-06-06,6
+7,7,Tours Rurales,Turismo rural,Local,Activo,2500,6000,2025-06-07,7
+8,8,Orgánico Market,Comercio orgánico,Nacional,Activo,5500,11000,2025-06-08,8
+9,9,Moda Andina,Ropa artesanal,Local,Activo,3500,7000,2025-06-09,9
+10,10,LogiRural,Transporte rural,Regional,Activo,4500,8500,2025-06-10,10 

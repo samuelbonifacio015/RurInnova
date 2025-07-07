@@ -1,0 +1,11 @@
+Id_Emprendedor,Id_Usuario,Nombre_Completo,Fecha_Nacimiento,DNI,Telefono,Correo_Electronico,Tipo_Emprendimiento,Estado_Emprendimiento,Fecha_Registro,Distrito_Residencia,Descripcion_Negocio,Id_Distrito
+1,1,Ana López Pérez,1990-03-15,12345678,+51 912345678,ana.lopez@example.com,Comercio,Activo,2024-01-10,Miraflores,Artesanías locales.,1
+2,2,Carlos Díaz Ramírez,1985-11-22,87654321,+51 987654321,carlos.diaz@example.com,Servicios,Activo,2025-02-05,Surco,Marketing digital.,2
+3,3,Lucía Morales Vega,1992-07-08,11223344,+51 934567890,lucia.vega@example.com,Agricultura,Activo,2025-03-12,Barranco,Hortalizas ecológicas.,3
+4,4,Miguel Torres Huerta,1988-01-20,55667788,+51 945678901,miguel.huerta@example.com,Tecnología,Activo,2025-04-18,San Isidro,Soluciones IoT.,4
+5,5,María Gonzales Paredes,1991-12-05,66778899,+51 956789012,maria.paredes@example.com,Educación,Activo,2025-05-22,Lince,Plataforma e-learning.,5
+6,6,José Ramírez Salas,1987-09-30,77889900,+51 967890123,jose.salas@example.com,Salud,Activo,2025-06-01,Jesus María,Clínica móvil.,6
+7,7,Patricia Flores Soto,1993-02-14,88990011,+51 978901234,patricia.soto@example.com,Turismo,Activo,2025-06-10,Callao,Tours rurales.,7
+8,8,Ricardo Paredes León,1989-05-21,99001122,+51 989012345,ricardo.leon@example.com,Gastronomía,Activo,2025-06-12,Lima,Restaurante orgánico.,8
+9,9,Elena Castro Moya,1994-11-11,10011001,+51 990123456,elena.moya@example.com,Moda,Activo,2025-06-13,Chorrillos,Ropa artesanal.,9
+10,10,Diego Vega Ruiz,1990-08-17,11001100,+51 991234567,diego.ruiz@example.com,Logística,Activo,2025-06-14,Pueblo Libre,Transporte rural.,10 

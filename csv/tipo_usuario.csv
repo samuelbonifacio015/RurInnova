@@ -1,0 +1,11 @@
+Id_Tipo_Usuario,Nombre_Tipo
+1,Mentor
+2,Emprendedor
+3,Administrador
+4,Usuario
+5,Invitado
+6,Evaluador
+7,Visitante
+8,Gestor
+9,Analista
+10,Facilitador 

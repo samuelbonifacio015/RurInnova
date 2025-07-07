@@ -1,0 +1,11 @@
+Id_Factura,Id_Emprendedor,Monto,Fecha_Factura,Metodo_Pago,Estado_Pago
+1,1,1500,2025-06-01,Tarjeta,Pagado
+2,2,2000.5,2025-06-02,Transferencia,Pendiente
+3,3,250.75,2025-06-03,Efectivo,Pagado
+4,4,300,2025-06-04,Yape,Pagado
+5,5,500.2,2025-06-05,Plin,Pendiente
+6,6,750,2025-06-06,Tarjeta,Pagado
+7,7,1200,2025-06-07,Transferencia,Pagado
+8,8,980.9,2025-06-08,Efectivo,Pendiente
+9,9,1100,2025-06-09,Yape,Pagado
+10,10,1300,2025-06-10,Plin,Pendiente 
