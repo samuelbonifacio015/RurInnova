@@ -1,40 +1,6 @@
 # Consultas MongoDB para RurInnova
 
-Este documento contiene consultas MongoDB anidadas para la base de datos RurInnova, utilizando los datos de los archivos CSV proporcionados.
-
-## Configuración Inicial
-
-### 1. Conexión a MongoDB
-```javascript
-// Conectar a MongoDB
-mongosh "mongodb://localhost:27017/rurInnova"
-```
-
-### 2. Importar Datos desde CSV
-```javascript
-// Importar datos de usuarios
-mongoimport --db rurInnova --collection usuarios --type csv --file "C:/Users/usuario/Desktop/RurInnova/csv/usuario.csv" --headerline
-
-// Importar datos de emprendedores
-mongoimport --db rurInnova --collection emprendedores --type csv --file "C:/Users/usuario/Desktop/RurInnova/csv/emprendedor.csv" --headerline
-
-// Importar datos de negocios
-mongoimport --db rurInnova --collection negocios --type csv --file "C:/Users/usuario/Desktop/RurInnova/csv/negocio.csv" --headerline
-
-// Importar datos de mentores
-mongoimport --db rurInnova --collection mentores --type csv --file "C:/Users/usuario/Desktop/RurInnova/csv/mentor.csv" --headerline
-
-// Importar datos de concursos
-mongoimport --db rurInnova --collection concursos --type csv --file "C:/Users/usuario/Desktop/RurInnova/csv/concurso.csv" --headerline
-
-// Importar datos de sesiones de mentoría
-mongoimport --db rurInnova --collection sesiones_mentoria --type csv --file "C:/Users/usuario/Desktop/RurInnova/csv/sesion_mentoria.csv" --headerline
-
-// Importar datos de categorías de negocio
-mongoimport --db rurInnova --collection categorias_negocio --type csv --file "C:/Users/usuario/Desktop/RurInnova/csv/categoria_negocio.csv" --headerline
-```
-
-## Consultas Anidadas
+## Consultas 
 
 ### 1. Emprendedores con Información Completa de Usuario y Negocio
 
