@@ -1,6 +1,37 @@
 # RurInnova - Sistema de Gestión de Emprendimientos Rurales
 
-## ¿Que es RurInnova?
+## Índice
+
+- [¿Qué es RurInnova?](#qué-es-rurinnova)
+- [Estructura](#estructura)
+  - [Base de Datos](#base-de-datos)
+  - [Archivos Principales](#archivos-principales)
+- [Arquitectura de la Base de Datos](#arquitectura-de-la-base-de-datos)
+  - [Tablas Principales](#tablas-principales)
+  - [Relaciones Principales](#relaciones-principales)
+- [Datos de Entrada (CSV)](#datos-de-entrada-csv)
+  - [Estructura de Datos](#estructura-de-datos)
+  - [Archivos CSV Disponibles](#archivos-csv-disponibles)
+- [Funcionalidades del Sistema](#funcionalidades-del-sistema)
+  - [Gestión de Emprendedores](#gestión-de-emprendedores)
+  - [Sistema de Mentoría](#sistema-de-mentoría)
+  - [Concursos y Eventos](#concursos-y-eventos)
+  - [Recursos y Capacitación](#recursos-y-capacitación)
+  - [Análisis y Reportes](#análisis-y-reportes)
+- [Implementación MongoDB](#implementación-mongodb)
+  - [Características](#características)
+  - [Consultas Disponibles](#consultas-disponibles)
+- [Instalación y Configuración](#instalación-y-configuración)
+  - [Requisitos Previos](#requisitos-previos)
+  - [Pasos de Instalación](#pasos-de-instalación)
+- [Mantenimiento](#mantenimiento)
+  - [Consideraciones de Actualización](#consideraciones-de-actualización)
+  - [Monitoreo](#monitoreo)
+- [Documentación Adicional](#documentación-adicional)
+
+---
+
+## ¿Qué es RurInnova?
 
 RurInnova es una plataforma integral diseñada para gestionar y potenciar emprendimientos rurales. El sistema facilita la conexión entre emprendedores, mentores, organizaciones patrocinadoras y recursos de capacitación, proporcionando un ecosistema completo para el desarrollo de negocios en zonas rurales.
 
