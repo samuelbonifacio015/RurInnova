@@ -1,15 +1,15 @@
 # Consultas MongoDB para RurInnova
 
-## Consultas 
+## Consultas Anidadas
 
 ### 1. Emprendedores con Información Completa de Usuario y Negocio
 
 ```javascript
 // Consulta que anida información de usuario, emprendedor y negocio
-db.emprendedores.aggregate([
+db.emprendedor.aggregate([
   {
     $lookup: {
-      from: "usuarios",
+      from: "usuario",
       localField: "Id_Usuario",
       foreignField: "Id_Usuario",
       as: "usuario"
@@ -17,7 +17,7 @@ db.emprendedores.aggregate([
   },
   {
     $lookup: {
-      from: "negocios",
+      from: "negocio",
       localField: "Id_Emprendedor",
       foreignField: "Id_Emprendedor",
       as: "negocio"
@@ -25,7 +25,7 @@ db.emprendedores.aggregate([
   },
   {
     $lookup: {
-      from: "categorias_negocio",
+      from: "categoria_negocio",
       localField: "negocio.Id_Categoria",
       foreignField: "Id_Categoria",
       as: "categoria"
@@ -61,10 +61,10 @@ db.emprendedores.aggregate([
 
 ```javascript
 // Consulta que anida mentores con sus sesiones de mentoría
-db.mentores.aggregate([
+db.mentor.aggregate([
   {
     $lookup: {
-      from: "sesiones_mentoria",
+      from: "sesion_mentoria",
       localField: "Id_Mentor",
       foreignField: "Id_Mentor",
       as: "sesiones"
@@ -72,7 +72,7 @@ db.mentores.aggregate([
   },
   {
     $lookup: {
-      from: "emprendedores",
+      from: "emprendedor",
       localField: "sesiones.Id_Emprendedor",
       foreignField: "Id_Emprendedor",
       as: "emprendedores_mentoreados"
@@ -127,14 +127,14 @@ db.mentores.aggregate([
 
 ```javascript
 // Consulta que anida concursos con información de participantes
-db.concursos.aggregate([
+db.concurso.aggregate([
   {
     $lookup: {
-      from: "emprendedores",
+      from: "emprendedor",
       pipeline: [
         {
           $lookup: {
-            from: "negocios",
+            from: "negocio",
             localField: "Id_Emprendedor",
             foreignField: "Id_Emprendedor",
             as: "negocio"
@@ -142,6 +142,14 @@ db.concursos.aggregate([
         }
       ],
       as: "participantes_potenciales"
+    }
+  },
+  {
+    $lookup: {
+      from: "organizacion_patrocinadora",
+      localField: "Id_Organizacion",
+      foreignField: "Id_Organizacion",
+      as: "organizacion"
     }
   },
   {
@@ -156,6 +164,10 @@ db.concursos.aggregate([
         tema: "$Tema_Concurso",
         estado: "$Estado_Concurso",
         premios: "$Premios_Ofrecidos"
+      },
+      organizacion: {
+        nombre: { $arrayElemAt: ["$organizacion.Nombre_Organizacion", 0] },
+        tipo: { $arrayElemAt: ["$organizacion.Tipo_Organizacion", 0] }
       },
       participantes: {
         $map: {
@@ -179,10 +191,10 @@ db.concursos.aggregate([
 
 ```javascript
 // Consulta que agrupa negocios por categoría y calcula estadísticas
-db.negocios.aggregate([
+db.negocio.aggregate([
   {
     $lookup: {
-      from: "categorias_negocio",
+      from: "categoria_negocio",
       localField: "Id_Categoria",
       foreignField: "Id_Categoria",
       as: "categoria"
@@ -192,14 +204,14 @@ db.negocios.aggregate([
     $group: {
       _id: { $arrayElemAt: ["$categoria.Nombre_Categoria", 0] },
       total_negocios: { $sum: 1 },
-      capital_total: { $sum: { $toInt: "$Capital_Recibido" } },
-      capital_promedio: { $avg: { $toInt: "$Capital_Recibido" } },
-      capital_maximo: { $max: { $toInt: "$Capital_Recibido" } },
-      capital_minimo: { $min: { $toInt: "$Capital_Recibido" } },
+      capital_total: { $sum: { $toDouble: "$Capital_Recibido" } },
+      capital_promedio: { $avg: { $toDouble: "$Capital_Recibido" } },
+      capital_maximo: { $max: { $toDouble: "$Capital_Recibido" } },
+      capital_minimo: { $min: { $toDouble: "$Capital_Recibido" } },
       negocios: {
         $push: {
           nombre: "$Nombre_Negocio",
-          capital: { $toInt: "$Capital_Recibido" },
+          capital: { $toDouble: "$Capital_Recibido" },
           tipo: "$Tipo_Negocio",
           estado: "$Estado_Negocio"
         }
@@ -230,10 +242,10 @@ db.negocios.aggregate([
 
 ```javascript
 // Consulta que anida emprendedores con su historial completo de mentorías
-db.emprendedores.aggregate([
+db.emprendedor.aggregate([
   {
     $lookup: {
-      from: "sesiones_mentoria",
+      from: "sesion_mentoria",
       localField: "Id_Emprendedor",
       foreignField: "Id_Emprendedor",
       as: "sesiones"
@@ -241,7 +253,7 @@ db.emprendedores.aggregate([
   },
   {
     $lookup: {
-      from: "mentores",
+      from: "mentor",
       localField: "sesiones.Id_Mentor",
       foreignField: "Id_Mentor",
       as: "mentores"
@@ -249,7 +261,7 @@ db.emprendedores.aggregate([
   },
   {
     $lookup: {
-      from: "negocios",
+      from: "negocio",
       localField: "Id_Emprendedor",
       foreignField: "Id_Emprendedor",
       as: "negocio"
@@ -322,10 +334,10 @@ db.emprendedores.aggregate([
 
 ```javascript
 // Consulta que analiza la efectividad de mentorías por especialización
-db.mentores.aggregate([
+db.mentor.aggregate([
   {
     $lookup: {
-      from: "sesiones_mentoria",
+      from: "sesion_mentoria",
       localField: "Id_Mentor",
       foreignField: "Id_Mentor",
       as: "sesiones"
@@ -333,7 +345,7 @@ db.mentores.aggregate([
   },
   {
     $lookup: {
-      from: "emprendedores",
+      from: "emprendedor",
       localField: "sesiones.Id_Emprendedor",
       foreignField: "Id_Emprendedor",
       as: "emprendedores"
@@ -380,7 +392,7 @@ db.mentores.aggregate([
 
 ```javascript
 // Consulta que crea un dashboard completo con todas las métricas importantes
-db.emprendedores.aggregate([
+db.emprendedor.aggregate([
   {
     $facet: {
       "resumen_general": [
@@ -398,7 +410,7 @@ db.emprendedores.aggregate([
       "negocios_por_distrito": [
         {
           $lookup: {
-            from: "negocios",
+            from: "negocio",
             localField: "Id_Emprendedor",
             foreignField: "Id_Emprendedor",
             as: "negocio"
@@ -409,7 +421,7 @@ db.emprendedores.aggregate([
             _id: "$Distrito_Residencia",
             total_negocios: { $sum: 1 },
             capital_total: {
-              $sum: { $toInt: { $arrayElemAt: ["$negocio.Capital_Recibido", 0] } }
+              $sum: { $toDouble: { $arrayElemAt: ["$negocio.Capital_Recibido", 0] } }
             }
           }
         }
@@ -417,7 +429,7 @@ db.emprendedores.aggregate([
       "mentorias_por_mes": [
         {
           $lookup: {
-            from: "sesiones_mentoria",
+            from: "sesion_mentoria",
             localField: "Id_Emprendedor",
             foreignField: "Id_Emprendedor",
             as: "sesiones"
@@ -435,7 +447,27 @@ db.emprendedores.aggregate([
               }
             },
             total_sesiones: { $sum: 1 },
-            duracion_promedio: { $avg: { $toInt: "$sesiones.Duracion" } }
+            duracion_promedio: { $avg: { $toInt: { $substr: ["$sesiones.Duracion", 0, 2] } } }
+          }
+        }
+      ],
+      "capacitaciones_por_estado": [
+        {
+          $lookup: {
+            from: "capacitacion",
+            localField: "Id_Emprendedor",
+            foreignField: "Id_Emprendedor",
+            as: "capacitaciones"
+          }
+        },
+        {
+          $unwind: "$capacitaciones"
+        },
+        {
+          $group: {
+            _id: "$capacitaciones.Estado_Capacitacion",
+            total_capacitaciones: { $sum: 1 },
+            duracion_promedio: { $avg: "$capacitaciones.Duracion_Horas" }
           }
         }
       ]
@@ -446,7 +478,8 @@ db.emprendedores.aggregate([
       dashboard: {
         resumen_general: { $arrayElemAt: ["$resumen_general", 0] },
         negocios_por_distrito: "$negocios_por_distrito",
-        mentorias_por_mes: "$mentorias_por_mes"
+        mentorias_por_mes: "$mentorias_por_mes",
+        capacitaciones_por_estado: "$capacitaciones_por_estado"
       }
     }
   }
@@ -459,10 +492,10 @@ db.emprendedores.aggregate([
 
 ```javascript
 // Consulta que analiza factores que contribuyen al éxito de emprendimientos
-db.emprendedores.aggregate([
+db.emprendedor.aggregate([
   {
     $lookup: {
-      from: "negocios",
+      from: "negocio",
       localField: "Id_Emprendedor",
       foreignField: "Id_Emprendedor",
       as: "negocio"
@@ -470,10 +503,18 @@ db.emprendedores.aggregate([
   },
   {
     $lookup: {
-      from: "sesiones_mentoria",
+      from: "sesion_mentoria",
       localField: "Id_Emprendedor",
       foreignField: "Id_Emprendedor",
       as: "sesiones"
+    }
+  },
+  {
+    $lookup: {
+      from: "capacitacion",
+      localField: "Id_Emprendedor",
+      foreignField: "Id_Emprendedor",
+      as: "capacitaciones"
     }
   },
   {
@@ -486,7 +527,7 @@ db.emprendedores.aggregate([
       },
       negocio: {
         nombre: { $arrayElemAt: ["$negocio.Nombre_Negocio", 0] },
-        capital: { $toInt: { $arrayElemAt: ["$negocio.Capital_Recibido", 0] } },
+        capital: { $toDouble: { $arrayElemAt: ["$negocio.Capital_Recibido", 0] } },
         estado: { $arrayElemAt: ["$negocio.Estado_Negocio", 0] }
       },
       metricas_mentoria: {
@@ -508,12 +549,24 @@ db.emprendedores.aggregate([
           }
         }
       },
+      metricas_capacitacion: {
+        total_capacitaciones: { $size: "$capacitaciones" },
+        capacitaciones_completadas: {
+          $size: {
+            $filter: {
+              input: "$capacitaciones",
+              cond: { $eq: ["$$this.Estado_Capacitacion", "Completada"] }
+            }
+          }
+        }
+      },
       factor_exito: {
         $cond: [
           {
             $and: [
               { $gte: [{ $size: "$sesiones" }, 3] },
-              { $gte: [{ $toInt: { $arrayElemAt: ["$negocio.Capital_Recibido", 0] } }, 5000] }
+              { $gte: [{ $toDouble: { $arrayElemAt: ["$negocio.Capital_Recibido", 0] } }, 5000] },
+              { $gte: [{ $size: "$capacitaciones" }, 2] }
             ]
           },
           "Alto",
@@ -521,7 +574,8 @@ db.emprendedores.aggregate([
             $cond: [
               { $or: [
                 { $gte: [{ $size: "$sesiones" }, 2] },
-                { $gte: [{ $toInt: { $arrayElemAt: ["$negocio.Capital_Recibido", 0] } }, 3000] }
+                { $gte: [{ $toDouble: { $arrayElemAt: ["$negocio.Capital_Recibido", 0] } }, 3000] },
+                { $gte: [{ $size: "$capacitaciones" }, 1] }
               ]},
               "Medio",
               "Bajo"
@@ -537,6 +591,119 @@ db.emprendedores.aggregate([
 ])
 ```
 
+### 9. Análisis de Capacitaciones y Cursos
+
+```javascript
+// Consulta que analiza la relación entre capacitaciones y cursos
+db.capacitacion.aggregate([
+  {
+    $lookup: {
+      from: "curso",
+      localField: "Id_Capacitacion",
+      foreignField: "Id_Capacitacion",
+      as: "cursos"
+    }
+  },
+  {
+    $lookup: {
+      from: "emprendedor",
+      localField: "Id_Emprendedor",
+      foreignField: "Id_Emprendedor",
+      as: "emprendedor"
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      capacitacion: {
+        id: "$Id_Capacitacion",
+        nombre: "$Nombre_Capacitacion",
+        tipo: "$Tipo_Capacitacion",
+        estado: "$Estado_Capacitacion",
+        duracion: "$Duracion_Horas"
+      },
+      emprendedor: {
+        nombre: { $arrayElemAt: ["$emprendedor.Nombre_Completo", 0] },
+        tipo: { $arrayElemAt: ["$emprendedor.Tipo_Emprendimiento", 0] }
+      },
+      cursos: {
+        $map: {
+          input: "$cursos",
+          as: "curso",
+          in: {
+            nombre: "$$curso.Nombre_Curso",
+            tipo: "$$curso.Tipo_Curso",
+            duracion: "$$curso.Duracion_Curso"
+          }
+        }
+      },
+      total_cursos: { $size: "$cursos" }
+    }
+  },
+  {
+    $sort: { "total_cursos": -1, "capacitacion.duracion": -1 }
+  }
+])
+```
+
+### 10. Análisis de Feedback y Satisfacción
+
+```javascript
+// Consulta que analiza el feedback de los emprendedores
+db.feedback.aggregate([
+  {
+    $lookup: {
+      from: "emprendedor",
+      localField: "Id_Emprendedor",
+      foreignField: "Id_Emprendedor",
+      as: "emprendedor"
+    }
+  },
+  {
+    $lookup: {
+      from: "capacitacion",
+      localField: "Id_Capacitacion",
+      foreignField: "Id_Capacitacion",
+      as: "capacitacion"
+    }
+  },
+  {
+    $group: {
+      _id: "$Tipo_Feedback",
+      total_feedbacks: { $sum: 1 },
+      calificacion_promedio: { $avg: "$Calificacion" },
+      calificacion_maxima: { $max: "$Calificacion" },
+      calificacion_minima: { $min: "$Calificacion" },
+      emprendedores: {
+        $addToSet: { $arrayElemAt: ["$emprendedor.Nombre_Completo", 0] }
+      },
+      capacitaciones: {
+        $addToSet: { $arrayElemAt: ["$capacitacion.Nombre_Capacitacion", 0] }
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      tipo_feedback: "$_id",
+      estadisticas: {
+        total_feedbacks: "$total_feedbacks",
+        calificacion_promedio: { $round: ["$calificacion_promedio", 2] },
+        calificacion_maxima: "$calificacion_maxima",
+        calificacion_minima: "$calificacion_minima"
+      },
+      participantes: {
+        total_emprendedores: { $size: "$emprendedores" },
+        total_capacitaciones: { $size: "$capacitaciones" }
+      }
+    }
+  },
+  {
+    $sort: { "estadisticas.calificacion_promedio": -1 }
+  }
+])
+```
+
 ## Notas Importantes
 
 1. **Formato de Fechas**: Los datos CSV contienen fechas en formato YYYY-MM-DD, que MongoDB puede procesar directamente.
@@ -545,17 +712,27 @@ db.emprendedores.aggregate([
 
 3. **Índices Recomendados**: Para mejorar el rendimiento, crear índices en los campos de relación:
    ```javascript
-   db.emprendedores.createIndex({ "Id_Usuario": 1 })
-   db.negocios.createIndex({ "Id_Emprendedor": 1 })
-   db.sesiones_mentoria.createIndex({ "Id_Mentor": 1, "Id_Emprendedor": 1 })
+   db.emprendedor.createIndex({ "Id_Usuario": 1 })
+   db.negocio.createIndex({ "Id_Emprendedor": 1 })
+   db.sesion_mentoria.createIndex({ "Id_Mentor": 1, "Id_Emprendedor": 1 })
+   db.capacitacion.createIndex({ "Id_Emprendedor": 1 })
+   db.curso.createIndex({ "Id_Capacitacion": 1 })
+   db.feedback.createIndex({ "Id_Emprendedor": 1 })
    ```
 
 4. **Validación de Datos**: Antes de ejecutar las consultas, verificar que los datos se hayan importado correctamente:
    ```javascript
-   db.emprendedores.countDocuments()
-   db.negocios.countDocuments()
-   db.mentores.countDocuments()
+   db.emprendedor.countDocuments()
+   db.negocio.countDocuments()
+   db.mentor.countDocuments()
+   db.capacitacion.countDocuments()
+   db.feedback.countDocuments()
    ```
+
+5. **Estructura de Colecciones**: Todas las colecciones están en singular:
+   - `usuario`, `emprendedor`, `negocio`, `mentor`, `concurso`
+   - `sesion_mentoria`, `categoria_negocio`, `capacitacion`, `curso`
+   - `feedback`, `historico_emprendimiento`, `direccion`, `facturacion`
 
 ## Uso de las Consultas
 
@@ -564,10 +741,12 @@ db.emprendedores.aggregate([
 2. **Exportar Resultados**: Para exportar resultados a JSON:
    ```javascript
    // Ejemplo: Exportar dashboard completo
-   db.emprendedores.aggregate([...]).forEach(printjson)
+   db.emprendedor.aggregate([...]).forEach(printjson)
    ```
 
 3. **Guardar Consultas**: Las consultas pueden guardarse en archivos .js y ejecutarse con:
    ```bash
    mongosh "mongodb://localhost:27017/rurInnova" --file consulta.js
-   ``` 
+   ```
+
+4. **Colecciones Excluidas**: No se incluyen consultas para `redes_sociales`, `recursos` y `premios_concurso` según especificación. 
