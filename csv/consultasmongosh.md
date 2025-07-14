@@ -1651,4 +1651,255 @@ db.curso.aggregate([
 
 ---
 
+## Consultas de Actualización (UPDATE)
+
+### 31. Actualizar el estado de un emprendedor específico
+
+```javascript
+db.emprendedor.updateOne(
+  { Id_Emprendedor: 1 },
+  { $set: { Estado_Emprendimiento: "Inactivo" } }
+);
+```
+
+**Explicación:**
+- `updateOne`: Actualiza un solo documento que coincida con el filtro
+- `$set`: Establece el valor del campo especificado
+- Filtro: Busca el emprendedor con `Id_Emprendedor: 1`
+- Actualización: Cambia `Estado_Emprendimiento` a "Inactivo"
+
+**Resultado esperado:**
+```json
+{
+  "acknowledged": true,
+  "matchedCount": 1,
+  "modifiedCount": 1,
+  "upsertedId": null
+}
+```
+
+### 32. Actualizar el capital recibido de un negocio
+
+```javascript
+db.negocio.updateOne(
+  { Id_Negocio: 2 },
+  { 
+    $set: { 
+      Capital_Recibido: 3500,
+      Fecha_Ultima_Actualizacion: new Date()
+    } 
+  }
+);
+```
+
+**Explicación:**
+- Actualiza el negocio con `Id_Negocio: 2`
+- Cambia `Capital_Recibido` a 3500
+- Actualiza `Fecha_Ultima_Actualizacion` con la fecha actual
+
+### 33. Actualizar múltiples facturas pendientes a pagadas
+
+```javascript
+db.facturacion.updateMany(
+  { Estado_Pago: "Pendiente" },
+  { $set: { Estado_Pago: "Pagado" } }
+);
+```
+
+**Explicación:**
+- `updateMany`: Actualiza todos los documentos que coincidan con el filtro
+- Filtro: Busca todas las facturas con `Estado_Pago: "Pendiente"`
+- Actualización: Cambia el estado a "Pagado"
+
+### 34. Incrementar la duración de todos los cursos principiantes
+
+```javascript
+db.curso.updateMany(
+  { Nivel: "Principiante" },
+  { $inc: { Duracion: 1 } }
+);
+```
+
+**Explicación:**
+- `$inc`: Incrementa el valor del campo en la cantidad especificada
+- Filtro: Todos los cursos de nivel "Principiante"
+- Actualización: Aumenta la duración en 1 semana
+
+### 35. Actualizar la experiencia de un mentor específico
+
+```javascript
+db.mentor.updateOne(
+  { Id_Mentor: 5 },
+  { 
+    $set: { 
+      Años_Experiencia: 6,
+      Area_Especializacion: "Marketing Digital Avanzado"
+    } 
+  }
+);
+```
+
+**Explicación:**
+- Actualiza el mentor con `Id_Mentor: 5`
+- Cambia `Años_Experiencia` a 6
+- Actualiza `Area_Especializacion` a "Marketing Digital Avanzado"
+
+### 36. Actualizar el estado de múltiples negocios según su capital
+
+```javascript
+db.negocio.updateMany(
+  { Capital_Recibido: { $gte: 5000 } },
+  { $set: { Estado_Negocio: "Completado" } }
+);
+```
+
+**Explicación:**
+- Filtro: Negocios con capital recibido mayor o igual a 5000
+- Actualización: Cambia el estado a "Completado"
+
+### 37. Actualizar el método de pago de facturas específicas
+
+```javascript
+db.facturacion.updateMany(
+  { Metodo_Pago: "Efectivo" },
+  { $set: { Metodo_Pago: "Transferencia" } }
+);
+```
+
+**Explicación:**
+- Filtro: Todas las facturas con método de pago "Efectivo"
+- Actualización: Cambia el método de pago a "Transferencia"
+
+### 38. Actualizar la descripción de un curso específico
+
+```javascript
+db.curso.updateOne(
+  { Id_Curso: 3 },
+  { 
+    $set: { 
+      Descripcion_Curso: "Curso actualizado sobre tecnologías interactivas modernas",
+      Area_Especializacion: "Tecnología Interactiva"
+    } 
+  }
+);
+```
+
+**Explicación:**
+- Actualiza el curso con `Id_Curso: 3`
+- Modifica la descripción y área de especialización
+
+### 39. Actualizar el tipo de mentoria de múltiples mentores
+
+```javascript
+db.mentor.updateMany(
+  { Tipo_Mentoria: "Marketing" },
+  { $set: { Tipo_Mentoria: "Marketing Digital" } }
+);
+```
+
+**Explicación:**
+- Filtro: Todos los mentores con tipo de mentoria "Marketing"
+- Actualización: Cambia a "Marketing Digital"
+
+### 40. Actualizar el distrito de residencia de un emprendedor
+
+```javascript
+db.emprendedor.updateOne(
+  { Id_Emprendedor: 8 },
+  { 
+    $set: { 
+      Distrito_Residencia: "San Miguel",
+      Id_Distrito: 11
+    } 
+  }
+);
+```
+
+**Explicación:**
+- Actualiza el emprendedor con `Id_Emprendedor: 8`
+- Cambia el distrito de residencia y su ID correspondiente
+
+### 41. Actualizar múltiples campos de una factura
+
+```javascript
+db.facturacion.updateOne(
+  { Id_Factura: 4 },
+  { 
+    $set: { 
+      Monto: 350,
+      Metodo_Pago: "Yape",
+      Estado_Pago: "Pagado"
+    } 
+  }
+);
+```
+
+**Explicación:**
+- Actualiza la factura con `Id_Factura: 4`
+- Modifica monto, método de pago y estado simultáneamente
+
+### 42. Actualizar el estado de emprendedores inactivos
+
+```javascript
+db.emprendedor.updateMany(
+  { Estado_Emprendimiento: "Inactivo" },
+  { $set: { Estado_Emprendimiento: "Activo" } }
+);
+```
+
+**Explicación:**
+- Filtro: Todos los emprendedores inactivos
+- Actualización: Reactiva todos los emprendedores
+
+### 43. Actualizar la duración de cursos largos
+
+```javascript
+db.curso.updateMany(
+  { Duracion: { $gt: 10 } },
+  { $inc: { Duracion: 2 } }
+);
+```
+
+**Explicación:**
+- Filtro: Cursos con duración mayor a 10 semanas
+- Actualización: Aumenta la duración en 2 semanas adicionales
+
+### 44. Actualizar el capital objetivo de negocios específicos
+
+```javascript
+db.negocio.updateMany(
+  { Tipo_Negocio: "Nacional" },
+  { $inc: { Monto_Objetivo: 1000 } }
+);
+```
+
+**Explicación:**
+- Filtro: Negocios de tipo "Nacional"
+- Actualización: Aumenta el monto objetivo en 1000
+
+### 45. Actualizar la especialidad de mentores experimentados
+
+```javascript
+db.mentor.updateMany(
+  { Años_Experiencia: { $gte: 15 } },
+  { $set: { Area_Especializacion: "Especialista Senior" } }
+);
+```
+
+**Explicación:**
+- Filtro: Mentores con 15 o más años de experiencia
+- Actualización: Cambia su área de especialización a "Especialista Senior"
+
+---
+
+## Operadores de Actualización Utilizados:
+
+- **`$set`**: Establece el valor de un campo
+- **`$inc`**: Incrementa el valor de un campo numérico
+- **`$unset`**: Elimina un campo (no usado en los ejemplos)
+- **`$push`**: Agrega elementos a un array (no usado en los ejemplos)
+- **`$pull`**: Elimina elementos de un array (no usado en los ejemplos)
+
+---
+
 _Nota: Este archivo se irá actualizando con más consultas según las necesidades del proyecto._
