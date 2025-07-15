@@ -143,326 +143,137 @@ Este examen evalúa tu conocimiento básico de consultas MongoDB para la base de
 
 ---
 
-## Sección 5: Consultas Básicas con $group
+## Sección 5: Consultas con $or
 
 ### Pregunta 21
+**Busca emprendedores que sean de tipo "Tecnología" O que vivan en "Miraflores".**
+
+### Pregunta 22
+**Encuentra negocios que sean de tipo "Nacional" O que tengan capital recibido mayor a 6000.**
+
+### Pregunta 23
+**Busca facturas que tengan monto mayor a 1000 O método de pago "Efectivo".**
+
+### Pregunta 24
+**Encuentra cursos que sean de nivel "Avanzado" O que tengan duración mayor a 10 semanas.**
+
+### Pregunta 25
+**Busca mentores con más de 15 años de experiencia O que sean de tipo "Marketing".**
+
+---
+
+## Sección 6: Consultas Básicas con $group
+
+### Pregunta 26
 **Agrupa los emprendedores por tipo de emprendimiento y cuenta cuántos hay de cada tipo.**
 
 #### ✅ Resuelto
 
-### Pregunta 22
+### Pregunta 27
 **Agrupa los negocios por tipo y cuenta cuántos negocios hay de cada tipo.**
 
 #### ✅ Resuelto
 
-### Pregunta 23
+### Pregunta 28
 **Agrupa las facturas por método de pago y cuenta cuántas facturas hay de cada método.**
 
 #### ✅ Resuelto
 
-### Pregunta 24
+### Pregunta 29
 **Agrupa los cursos por nivel y cuenta cuántos cursos hay de cada nivel.**
 
 #### ✅ Resuelto
 
-### Pregunta 25
+### Pregunta 30
 **Agrupa los mentores por área de especialización y cuenta cuántos mentores hay en cada área.**
 
 #### ✅ Resuelto
 
 ---
 
-## Sección 6: Consultas con $sum
+## Sección 7: Consultas con $sum
 
-### Pregunta 26
+### Pregunta 31
 **Calcula la suma total del capital recibido de todos los negocios.**
 
 #### ✅ Resuelto
 
-### Pregunta 27
+### Pregunta 32
 **Calcula la suma total de todos los montos de facturación.**
 
 #### ✅ Resuelto
 
-### Pregunta 28
+### Pregunta 33
 **Calcula la suma total de la duración de todos los cursos.**
 
 #### ✅ Resuelto
 
-### Pregunta 29
+### Pregunta 34
 **Calcula la suma total de años de experiencia de todos los mentores.**
 
-### Pregunta 30
-**Calcula la suma total de valoraciones de todos los feedbacks.**
-
----
-
-## Sección 7: Consultas con $lookup Simple
-
-### Pregunta 31
-**Une la colección `emprendedor` con `negocio` y muestra el nombre del emprendedor junto con el nombre de su negocio.**
-
-### Pregunta 32
-**Une `facturacion` con `emprendedor` y muestra el monto de la factura junto con el nombre del emprendedor.**
-
-### Pregunta 33
-**Une `curso` con `mentor` y muestra el nombre del curso junto con el nombre del instructor.**
-
-### Pregunta 34
-**Une `sesion_mentoria` con `mentor` y muestra la fecha de sesión junto con el nombre del mentor.**
+#### ✅ Resuelto
 
 ### Pregunta 35
-**Une `feedback` con `emprendedor` y muestra la valoración junto con el nombre del emprendedor.**
+**Calcula la suma total de valoraciones de todos los feedbacks.**
+
+#### ✅ Resuelto
 
 ---
 
-## Sección 8: Consultas con $project
+## Sección 8: Consultas con $lookup Simple
 
 ### Pregunta 36
-**En la colección `emprendedor`, muestra solo el nombre completo y el tipo de emprendimiento.**
+**Une la colección `emprendedor` con `negocio` y muestra el nombre del emprendedor junto con el nombre de su negocio.**
+
+#### ✅ Resuelto
 
 ### Pregunta 37
-**En `negocio`, muestra solo el nombre del negocio, tipo y capital recibido.**
+**Une `facturacion` con `emprendedor` y muestra el monto de la factura junto con el nombre del emprendedor.**
+
+#### ✅ Resuelto
 
 ### Pregunta 38
-**En `facturacion`, muestra solo el monto, método de pago y estado.**
+**Une `curso` con `mentor` y muestra el nombre del curso junto con el nombre del instructor.**
+
+#### ✅ Resuelto
 
 ### Pregunta 39
-**En `curso`, muestra solo el nombre del curso, nivel y duración.**
+**Une `sesion_mentoria` con `mentor` y muestra la fecha de sesión junto con el nombre del mentor.**
+
+#### ✅ Resuelto
 
 ### Pregunta 40
+**Une `feedback` con `emprendedor` y muestra la valoración junto con el nombre del emprendedor.**
+
+#### ✅ Resuelto
+
+---
+
+## Sección 9: Consultas con $project
+
+### Pregunta 41
+**En la colección `emprendedor`, muestra solo el nombre completo y el tipo de emprendimiento.**
+
+#### ✅ Resuelto
+
+### Pregunta 42
+**En `negocio`, muestra solo el nombre del negocio, tipo y capital recibido.**
+
+#### ✅ Resuelto
+
+### Pregunta 43
+**En `facturacion`, muestra solo el monto, método de pago y estado.**
+
+#### ✅ Resuelto
+
+### Pregunta 44
+**En `curso`, muestra solo el nombre del curso, nivel y duración.**
+
+#### ✅ Resuelto
+
+### Pregunta 45
 **En `mentor`, muestra solo el nombre completo, especialidad y años de experiencia.**
 
----
-
-*Nota: Todas las consultas deben ser ejecutables en MongoDB y deben devolver resultados coherentes con la estructura de datos de RurInnova.* 
-
-## 📋 **Resoluciones Preguntas 6-10**
+#### ✅ Resuelto
 
 ---
-
-### **Pregunta 6: Busca emprendedores que se hayan registrado después del 2024-12-31.**
-
-```javascript
-db.emprendedor.find(
-  { Fecha_Registro: { $gt: "2024-12-31" } }
-);
-```
-
-**Explicación:**
-- Usa el operador `$gt` (greater than) para buscar fechas posteriores a 2024-12-31
-- Compara directamente con el campo `Fecha_Registro`
-
-**Resultado esperado:**
-```json
-[
-  {
-    "Id_Emprendedor": 2,
-    "Nombre_Completo": "Carlos Díaz Ramírez",
-    "Fecha_Registro": "2025-02-05"
-  },
-  {
-    "Id_Emprendedor": 3,
-    "Nombre_Completo": "Lucía Morales Vega", 
-    "Fecha_Registro": "2025-03-12"
-  },
-  // ... otros emprendedores registrados en 2025
-]
-```
-
----
-
-### **Pregunta 7: Encuentra negocios que tengan un capital recibido mayor a 5000.**
-
-```javascript
-db.negocio.find(
-  { Capital_Recibido: { $gt: 5000 } }
-);
-```
-
-**Explicación:**
-- Usa el operador `$gt` para buscar capital recibido mayor a 5000
-- Compara con el campo numérico `Capital_Recibido`
-
-**Resultado esperado:**
-```json
-[
-  {
-    "Id_Negocio": 1,
-    "Nombre_Negocio": "López Artesanías",
-    "Capital_Recibido": 5000
-  },
-  {
-    "Id_Negocio": 4,
-    "Nombre_Negocio": "IoT Rural",
-    "Capital_Recibido": 6000
-  },
-  {
-    "Id_Negocio": 6,
-    "Nombre_Negocio": "Salud en Ruta",
-    "Capital_Recibido": 7000
-  },
-  {
-    "Id_Negocio": 8,
-    "Nombre_Negocio": "Orgánico Market",
-    "Capital_Recibido": 5500
-  }
-]
-```
-
----
-
-### **Pregunta 8: Busca facturas con un monto mayor a 1000.**
-
-```javascript
-db.facturacion.find(
-  { Monto: { $gt: 1000 } }
-);
-```
-
-**Explicación:**
-- Usa el operador `$gt` para buscar montos mayores a 1000
-- Compara con el campo numérico `Monto`
-
-**Resultado esperado:**
-```json
-[
-  {
-    "Id_Factura": 1,
-    "Id_Emprendedor": 1,
-    "Monto": 1500
-  },
-  {
-    "Id_Factura": 2,
-    "Id_Emprendedor": 2,
-    "Monto": 2000.5
-  },
-  {
-    "Id_Factura": 7,
-    "Id_Emprendedor": 7,
-    "Monto": 1200
-  },
-  {
-    "Id_Factura": 9,
-    "Id_Emprendedor": 9,
-    "Monto": 1100
-  },
-  {
-    "Id_Factura": 10,
-    "Id_Emprendedor": 10,
-    "Monto": 1300
-  }
-]
-```
-
----
-
-### **Pregunta 9: Encuentra cursos que tengan una duración menor a 10 semanas.**
-
-```javascript
-db.curso.find(
-  { Duracion: { $lt: 10 } }
-);
-```
-
-**Explicación:**
-- Usa el operador `$lt` (less than) para buscar duraciones menores a 10
-- Compara con el campo numérico `Duracion`
-
-**Resultado esperado:**
-```json
-[
-  {
-    "Id_Curso": 1,
-    "Nombre_Curso": "Estrategias para funcionalidades en línea",
-    "Duracion": 2
-  },
-  {
-    "Id_Curso": 2,
-    "Nombre_Curso": "Optimización de negocios electrónicos revolucionarios",
-    "Duracion": 7
-  },
-  {
-    "Id_Curso": 4,
-    "Nombre_Curso": "Innovación en comunidades multimedia",
-    "Duracion": 9
-  },
-  {
-    "Id_Curso": 5,
-    "Nombre_Curso": "Revoluciona redes multimedia",
-    "Duracion": 6
-  },
-  {
-    "Id_Curso": 9,
-    "Nombre_Curso": "Aprovechamiento de métricas innovadoras",
-    "Duracion": 4
-  },
-  {
-    "Id_Curso": 10,
-    "Nombre_Curso": "Posicionamiento de sinergias innovadoras",
-    "Duracion": 8
-  }
-]
-```
-
----
-
-### **Pregunta 10: Busca mentores con años de experiencia entre 5 y 15 años.**
-
-```javascript
-db.mentor.find(
-  { Años_Experiencia: { $gte: 5, $lte: 15 } }
-);
-```
-
-**Explicación:**
-- Usa `$gte` (greater than or equal) para 5 años o más
-- Usa `$lte` (less than or equal) para 15 años o menos
-- Combina ambos operadores para crear un rango
-
-**Resultado esperado:**
-```json
-[
-  {
-    "Id_Mentor": 1,
-    "Nombre_Completo": "Guiomar Segura Montaña",
-    "Años_Experiencia": 6
-  },
-  {
-    "Id_Mentor": 2,
-    "Nombre_Completo": "Úrsula Benito Diez",
-    "Años_Experiencia": 8
-  },
-  {
-    "Id_Mentor": 4,
-    "Nombre_Completo": "Filomena Albero Rey",
-    "Años_Experiencia": 14
-  },
-  {
-    "Id_Mentor": 6,
-    "Nombre_Completo": "Marcial Adán Carbonell",
-    "Años_Experiencia": 7
-  },
-  {
-    "Id_Mentor": 7,
-    "Nombre_Completo": "Pepita Jove Canals",
-    "Años_Experiencia": 14
-  },
-  {
-    "Id_Mentor": 10,
-    "Nombre_Completo": "Itziar Garay Lluch",
-    "Años_Experiencia": 10
-  }
-]
-```
-
----
-
-## 📝 **Resumen de Operadores Utilizados:**
-
-- **`$gt`**: Mayor que (>)
-- **`$lt`**: Menor que (<)
-- **`$gte`**: Mayor o igual que (≥)
-- **`$lte`**: Menor o igual que (≤)
-
-Estas consultas demuestran el uso básico de operadores de comparación en MongoDB para filtrar documentos según diferentes criterios numéricos y de fecha. 
