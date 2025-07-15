@@ -148,17 +148,27 @@ Este examen evalúa tu conocimiento básico de consultas MongoDB para la base de
 ### Pregunta 21
 **Agrupa los emprendedores por tipo de emprendimiento y cuenta cuántos hay de cada tipo.**
 
+#### ✅ Resuelto
+
 ### Pregunta 22
 **Agrupa los negocios por tipo y cuenta cuántos negocios hay de cada tipo.**
+
+#### ✅ Resuelto
 
 ### Pregunta 23
 **Agrupa las facturas por método de pago y cuenta cuántas facturas hay de cada método.**
 
+#### ✅ Resuelto
+
 ### Pregunta 24
 **Agrupa los cursos por nivel y cuenta cuántos cursos hay de cada nivel.**
 
+#### ✅ Resuelto
+
 ### Pregunta 25
 **Agrupa los mentores por área de especialización y cuenta cuántos mentores hay en cada área.**
+
+#### ✅ Resuelto
 
 ---
 
@@ -167,11 +177,17 @@ Este examen evalúa tu conocimiento básico de consultas MongoDB para la base de
 ### Pregunta 26
 **Calcula la suma total del capital recibido de todos los negocios.**
 
+#### ✅ Resuelto
+
 ### Pregunta 27
 **Calcula la suma total de todos los montos de facturación.**
 
+#### ✅ Resuelto
+
 ### Pregunta 28
 **Calcula la suma total de la duración de todos los cursos.**
+
+#### ✅ Resuelto
 
 ### Pregunta 29
 **Calcula la suma total de años de experiencia de todos los mentores.**
