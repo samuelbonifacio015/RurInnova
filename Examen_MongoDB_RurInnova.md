@@ -95,14 +95,22 @@ Este examen evalúa tu conocimiento básico de consultas MongoDB para la base de
 ### Pregunta 12
 **Encuentra negocios que sean de tipo "Local" o "Regional".**
 
+#### ✅ Resuelto
+
 ### Pregunta 13
 **Busca cursos que sean de nivel "Principiante" o "Intermedio".**
+
+#### ✅ Resuelto
 
 ### Pregunta 14
 **Encuentra facturas que tengan métodos de pago "Tarjeta" o "Transferencia".**
 
+#### ✅ Resuelto
+
 ### Pregunta 15
 **Busca emprendedores que vivan en "Miraflores" o "Surco".**
+
+#### ✅ Resuelto
 
 ---
 
@@ -111,17 +119,27 @@ Este examen evalúa tu conocimiento básico de consultas MongoDB para la base de
 ### Pregunta 16
 **Busca emprendedores que sean de tipo "Tecnología" Y que estén en estado "Activo".**
 
+#### ✅ Resuelto
+
 ### Pregunta 17
 **Encuentra negocios que sean de tipo "Local" Y que tengan capital recibido mayor a 3000.**
+
+#### ✅ Resuelto
 
 ### Pregunta 18
 **Busca cursos que sean de nivel "Principiante" Y que tengan duración menor a 8 semanas.**
 
+#### ✅ Resuelto
+
 ### Pregunta 19
 **Encuentra facturas que tengan monto mayor a 500 Y método de pago "Tarjeta".**
 
+#### ✅ Resuelto
+
 ### Pregunta 20
 **Busca mentores con más de 5 años de experiencia Y que sean de tipo "Técnica".**
+
+#### ✅ Resuelto
 
 ---
 
@@ -198,59 +216,6 @@ Este examen evalúa tu conocimiento básico de consultas MongoDB para la base de
 
 ### Pregunta 40
 **En `mentor`, muestra solo el nombre completo, especialidad y años de experiencia.**
-
----
-
-## Sección 9: Consultas con Ordenamiento
-
-### Pregunta 41
-**Ordena los emprendedores por nombre completo de forma ascendente.**
-
-### Pregunta 42
-**Ordena los negocios por capital recibido de forma descendente.**
-
-### Pregunta 43
-**Ordena las facturas por monto de forma descendente.**
-
-### Pregunta 44
-**Ordena los cursos por duración de forma ascendente.**
-
-### Pregunta 45
-**Ordena los mentores por años de experiencia de forma descendente.**
-
----
-
-## Sección 10: Consultas con Limit
-
-### Pregunta 46
-**Muestra solo los primeros 3 emprendedores ordenados por nombre.**
-
-### Pregunta 47
-**Muestra solo los 2 negocios con mayor capital recibido.**
-
-### Pregunta 48
-**Muestra solo las 3 facturas con mayor monto.**
-
-### Pregunta 49
-**Muestra solo los 2 cursos con mayor duración.**
-
-### Pregunta 50
-**Muestra solo los 3 mentores con más años de experiencia.**
-
----
-
-## Criterios de Evaluación
-
-- **Sintaxis correcta**: 30%
-- **Lógica de la consulta**: 30%
-- **Uso apropiado de operadores**: 25%
-- **Eficiencia de la consulta**: 15%
-
-**Tiempo límite: 2.5 horas**
-
-**Total de preguntas: 50**
-
-**Puntuación máxima: 100 puntos**
 
 ---
 
