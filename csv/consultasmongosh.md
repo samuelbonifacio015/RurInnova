@@ -1900,6 +1900,34 @@ db.mentor.updateMany(
 - **`$push`**: Agrega elementos a un array (no usado en los ejemplos)
 - **`$pull`**: Elimina elementos de un array (no usado en los ejemplos)
 
----
+## JSON Schema Validation:
+
+Memotecnia: 
+
+- **`Julian`**: $JsonSchema: {
+
+}
+-  **`Busca`**: bsonType: 'object',
+-  **`Reglas`**: required: [
+
+]
+-  **`Precisas`**: properties: {
+
+}
+
+### EJEMPLO: SINTAXIS DE VALIDACION
+
+```javascript
+$jsonSchema: {
+  bsonType: "object",
+  required: [...],
+  properties: {
+    campo1: {
+      bsonType: "string"
+    }
+  }
+}
+```
 
 _Nota: Este archivo se irá actualizando con más consultas según las necesidades del proyecto._
+
